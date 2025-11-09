@@ -68,6 +68,8 @@ coverage.xml
 ehthumbs.db
 Thumbs.db
 
-# Logs (optional - you might want to keep some logs)
+# Local logs directory (old Windows setup)
+logs/
+
+# System logs are stored in /var/log/python-api-logging/ on Linux
 *.log
-logs/*.log

@@ -1,6 +1,6 @@
 # Log Generator Application
 
-A Python Flask application that generates 0.01 GB (10 MB) of logs per minute and provides monitoring APIs.
+A Python Flask application that generates 0.01 GB (10 MB) of logs per minute and provides monitoring APIs. This application is designed to run on Linux systems and stores logs in `/var/log/python-api-logging/`.
 
 ## Features
 
@@ -9,30 +9,70 @@ A Python Flask application that generates 0.01 GB (10 MB) of logs per minute and
 - **System monitoring**: CPU, memory, and disk usage information
 - **Log file rotation**: Automatic rotation to prevent disk space issues
 - **Real-time statistics**: Track log generation in real-time
+- **Linux optimized**: Stores logs in standard Linux location (`/var/log/`)
 
 ## Requirements
 
+- Linux operating system
 - Python 3.7+
 - Flask
 - psutil
+- sudo access (for creating log directory)
 
-## Installation
+## Quick Setup
 
-1. Install the required dependencies:
+1. Run the automated setup script:
+```bash
+chmod +x setup_linux.sh
+./setup_linux.sh
+```
+
+This will:
+- Create a virtual environment
+- Install Python dependencies
+- Create the log directory at `/var/log/python-api-logging/`
+- Set proper permissions
+- Make scripts executable
+
+## Manual Installation
+
+1. Create and activate virtual environment:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+2. Install the required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
+3. Create log directory:
+```bash
+sudo mkdir -p /var/log/python-api-logging
+sudo chown $USER:$USER /var/log/python-api-logging
+sudo chmod 755 /var/log/python-api-logging
+```
+
 ## Usage
 
-1. Start the application:
+1. Start the application using the startup script:
 ```bash
-python app.py
+./start_app.sh
+```
+
+Or manually:
+```bash
+source venv/bin/activate
+python3 app.py
 ```
 
 2. The application will start on port 8080 and display available endpoints.
 
-3. Use the API endpoints to control and monitor the application.
+3. Test the API endpoints:
+```bash
+./test_api.sh
+```
 
 ## API Endpoints
 

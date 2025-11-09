@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 # Configuration
 PORT = 8080
-LOG_DIR = "logs"
+LOG_DIR = "/var/log/python-api-logging"
 LOG_FILE = os.path.join(LOG_DIR, "app.log")
 TARGET_LOG_SIZE_PER_MINUTE = 10 * 1024 * 1024  # 0.01 GB (10 MB) in bytes
 LOG_ENTRY_SIZE = 1024  # Size of each log entry in bytes
