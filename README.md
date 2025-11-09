@@ -194,9 +194,16 @@ You can use the monitoring endpoints to:
 - Monitor disk space to prevent system issues from large log files
 - Consider rate limiting for production environments
 
+## Documentation
+
+- **[Manual Linux Deployment](MANUAL_LINUX_DEPLOYMENT.md)** - Step-by-step manual commands for Linux deployment
+- **[Linux Deployment Guide](LINUX_DEPLOYMENT.md)** - Comprehensive Linux deployment with service setup
+- **[Quick Reference](QUICK_REFERENCE.md)** - Essential commands quick reference
+
 ## Troubleshooting
 
-1. **Port already in use**: Change the PORT variable in the code or kill the process using port 8080
-2. **Permission errors**: Ensure the application has write permissions in the working directory
-3. **Disk usage**: Monitor the `logs/` directory and adjust retention settings if needed
+1. **Port already in use**: Check with `sudo netstat -tlnp | grep :8080` and kill the process
+2. **Permission errors**: Ensure proper permissions on `/var/log/python-api-logging/`
+3. **Disk usage**: Monitor the log directory and adjust retention settings if needed
 4. **CPU/Memory usage**: Moderate resource usage for 10 MB/minute generation
+5. **Virtual environment**: Make sure to activate with `source venv/bin/activate`
