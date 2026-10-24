@@ -19,7 +19,7 @@ A Python Flask application that generates 0.01 GB (10 MB) of logs per minute and
 - psutil
 - sudo access (for creating log directory)
 
-## Quick Setup
+## Quick Setup (Not for Students)
 
 1. Run the automated setup script:
 ```bash
